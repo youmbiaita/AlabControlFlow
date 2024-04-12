@@ -4,18 +4,18 @@ const radius = 5;
 const area = PI * radius * radius;
 let initialPlant = 20;
 let initialArea = 0.8;
-let n = 3 ; //number of weeks
+let n = 1 ; //number of weeks
 console.log("The area of the garden is: " + area + " square meters");
 
 
 
 // Number of plants after n weeks:
- let totalPlant = initialPlant * Math.pow(2, n);
-console.log("Total Plants after " + n + " week(s) is: " + totalPlant + " Plants");
+ let totalPlant = initialPlant * Math.pow(2, n-1);
+console.log(`Total Plants after ${n} week(s) is ${totalPlant} Plants`);
 
 // Making decision on Plants:
 let currentArea = totalPlant *initialArea;
-console.log("Current Area after adding weeks: " + currentArea + " square meters");
+console.log(`Current Area after ${n} week(s) is ${currentArea} square meters`);
 if (currentArea > area * 0.8) {
     console.log("Pruned")
 }else if (currentArea > (area * 0.5) && currentArea <= (area * 0.8)){
@@ -23,3 +23,10 @@ if (currentArea > area * 0.8) {
 }else{
     console.log("Planted")
 }
+
+// Part 2: Thinking Bigger
+let newPlant = 100;
+let newArea = (newPlant * 16) / initialPlant;
+console.log(newArea)
+let areaRequired = newArea - area;
+console.log(areaRequired);
