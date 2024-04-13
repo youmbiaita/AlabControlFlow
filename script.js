@@ -4,7 +4,7 @@ const radius = 5;
 const area = PI * radius * radius;
 let initialPlant = 20;
 let initialArea = 0.8;
-let n = 1 ; //number of weeks
+let n = 4 ; //number of weeks
 console.log("The area of the garden is: " + area + " square meters");
 
 
@@ -26,7 +26,10 @@ if (currentArea > area * 0.8) {
 
 // Part 2: Thinking Bigger
 let newPlant = 100;
-let newArea = (newPlant * 16) / initialPlant;
-console.log(newArea)
-let areaRequired = newArea - area;
-console.log(areaRequired);
+// Total Area after 10 weeks
+let totalArea = newPlant * Math.pow(2, 9) * initialArea;
+
+let initialAreaFor100Plants = totalArea * 100 / 80 // 80% of total area
+
+let newRadius = Math.sqrt(initialAreaFor100Plants / PI);
+console.log(`The new radius is ${newRadius} meters`);
